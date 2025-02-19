@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="calculator">
+        <button id="toggle" class="responsive-toggle" onclick="toggleHistory()">History</button>
+        <button id="toggle" class="responsive-toggle" onclick="toggleMode()">Tema</button>
+        <div class="display">
+          <input id="screen" type="text" placeholder="0" />
+        </div>
+        <div class="btns">
+          <div class="row">
+            <button id="ce" onclick="backspc()">CE</button>
+            <button onclick="triggerTrigonometricFunction('sin')">sin</button>
+            <button class="btn">(</button>
+            <button class="btn">)</button>
+            <button class="btn">%</button>
+            <button id="ac" onclick="screen.value=''">AC</button>
+          </div>
+          <div class="row">
+            <!-- Tombol π -->
+            <button onclick="pi()">π</button>
+            <button onclick="triggerTrigonometricFunction('cos')">cos</button>
+            <button class="btn">7</button>
+            <button class="btn">8</button>
+            <button class="btn">9</button>
+            <button class="btn">÷</button>
+          </div>
+          <div class="row">
+            <!-- Tombol Log -->
+            <button onclick="log()">log</button>
+            <button onclick="triggerTrigonometricFunction('tan')">tan</button>
+            <button class="btn">4</button>
+            <button class="btn">5</button>
+            <button class="btn">6</button>
+            <button class="btn">×</button>
+          </div>
+          <div class="row">
+            <!-- Tombol Akar Kuadrat -->
+            <button onclick="sqrt()">√</button>
+            <!-- Tombol Euler (e) -->
+            <button onclick="insertE()">e</button>
+            <button class="btn">1</button>
+            <button class="btn">2</button>
+            <button class="btn">3</button>
+            <button class="btn">-</button>
+          </div>
+          <div class="row">
+            <button onclick="fact()">x!</button>
+            <button onclick="powXY()">x<sup>y</sup></button>
+            <button class="btn">0</button>
+            <button class="btn">,</button>
+            <button id="eval" onclick="evaluateExpression()">=</button>
+            <button class="btn">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="history">
+        <h2 style="font-family: Roboto; justify-content: center">History</h2>
+        <ul id="historyList"></ul>
+        <button id="clearHistory" onclick="clearHistory()">Clear</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

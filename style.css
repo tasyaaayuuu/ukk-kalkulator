@@ -1,0 +1,210 @@
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  user-select: none;
+  background: #817d7d; /* Dark background color */
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: none; /* Removed light effect */
+}
+
+.calculator, .history {
+  margin: 0 10px;
+}
+
+.calculator {
+  flex: 1;
+  padding: 20px;
+  border-radius: 8px;
+  background: #585757;
+}
+
+.history {
+  width: 20%;
+  max-height: 30rem; /* Restrict total height */
+  padding: 20px;
+  border-radius: 8px;
+  background: #585757;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+#historyList {
+  flex-grow: 1; /* Allow it to grow and fill the remaining space */
+  height: 30%; /* Ensure it takes the full height of the parent */
+  overflow-y: auto; /* Enable vertical scrolling when content overflows */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  width: 100%; /* Match the width of the parent */
+  padding: 8px;
+  box-sizing: border-box;
+  scrollbar-width: thin; /* Firefox: thin scrollbar */
+  scrollbar-color: #888 #3e3e3e; /* Firefox: scrollbar color */
+  background: rgb(0, 0, 0); /* Set custom background color */
+  border-radius: 4px;
+}
+
+/* Scrollbar styling for WebKit browsers */
+#historyList::-webkit-scrollbar {
+  width: 8px;
+}
+
+#historyList::-webkit-scrollbar-thumb {
+  background: #888; /* Scrollbar thumb color */
+  border-radius: 8px; /* Rounded scrollbar */
+}
+
+#historyList::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker thumb on hover */
+}
+
+#historyList::-webkit-scrollbar-track {
+  background: #3e3e3e; /* Scrollbar track color */
+}
+
+/* Clear button */
+#clearHistory {
+  align-self: center;
+  margin-top: 10px;
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  transition: 0.1s;
+  background: #ff3333;
+  color: #fff;
+  cursor: pointer;
+}
+
+#clearHistory:hover {
+  background: #e60000;
+}
+
+/* History items */
+.history ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.history ul li {
+  padding: 10px;
+  margin: 5px 0;
+  background: #4a4a4a;
+  color: #fff;
+  border-radius: 4px;
+  word-wrap: break-word; /* Ensures long text wraps */
+}
+
+
+
+.row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.row button {
+  flex: 1;
+  height: 60px;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  margin: 5px;
+  border-radius: 4px;
+  transition: 0.1s;
+  background: #4a4a4a; /* Dark button background */
+  color: #fff; /* White text */
+}
+
+.row button:hover {
+  background: #555555; /* Slightly lighter on hover */
+}
+
+.display #screen {
+  margin-bottom: 0.5em;
+  width: 100%;
+  height: 70px;
+  font-size: 35px;
+  outline: none;
+  border: none;
+  text-align: right;
+  padding-right: 10px;
+  background:rgb(0, 0, 0);
+  color: #fff; /* White text */
+  border-radius: 6px;
+}
+
+#eval {
+  background: #66909e;
+  color: #ffffff;
+}
+
+#eval:hover {
+  background: #b2d6e2;
+}
+
+#ac {
+  background: #58c958;
+  color: #ffffff;
+}
+
+#ac:hover {
+  background: #89c489;
+}
+
+#ce {
+  background: #e25da0;
+  color: #ffffff;
+}
+
+#ce:hover {
+  background: #d496b5;
+}
+
+/* Gaya umum untuk tombol toggle */
+#toggle {
+  align-self: center;
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.2s;
+  background: #b91c43; /* Warna biru kehijauan */
+  color: rgb(250, 245, 245);
+  cursor: pointer;
+  text-align: center;
+  width: auto; /* Atur agar lebar tombol otomatis sesuai konten */
+}
+
+/* Hover dan fokus pada tombol */
+#toggle:hover {
+  background: #f04d55; /* Warna biru lebih terang */
+  transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+/* Tombol pada layar kecil */
+/* Tombol pada layar kecil */
+@media (max-width: 768px) {
+  #toggle {
+    max-width: 80px; /* Batasi lebar maksimum tombol */
+    margin: 5px; /* Margin kecil agar terlihat rapi */
+    padding: 10px; /* Padding tetap nyaman */
+    font-size: 16px; /* Ukuran font tetap seragam */
+  }
+}

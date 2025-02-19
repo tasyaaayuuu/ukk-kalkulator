@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Konversi Panjang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        label {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        select, input, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        p#hasil {
+            font-size: 1.2rem;
+            color: #555;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kalkulator Konversi Panjang</h1>
+
+        <label for="pilihan">Pilih konversi:</label>
+        <select id="pilihan">
+            <option value="1">Meter ke Kilometer</option>
+            <option value="2">Kilometer ke Meter</option>
+            <option value="3">Centimeter ke Meter</option>
+            <option value="4">Meter ke Centimeter</option>
+            <option value="5">Mil ke Kilometer</option>
+            <option value="6">Kilometer ke Mil</option>
+        </select>
+
+        <label for="nilai">Masukkan panjang:</label>
+        <input type="number" id="nilai" placeholder="Masukkan panjang">
+
+        <button onclick="konversi()">Konversi</button>
+
+        <p id="hasil"></p>
+    </div>
+
+    <script>
+        function konversi() {
+            const pilihan = document.getElementById("pilihan").value;
+            const nilai = parseFloat(document.getElementById("nilai").value);
+            let hasil;
+
+            if (isNaN(nilai)) {
+                hasil = "Masukkan nilai yang valid!";
+            } else {
+                switch (pilihan) {
+                    case "1":
+                        hasil = `${nilai} meter = ${nilai / 1000} kilometer`;
+                        break;
+                    case "2":
+                        hasil = `${nilai} kilometer = ${nilai * 1000} meter`;
+                        break;
+                    case "3":
+                        hasil = `${nilai} centimeter = ${nilai / 100} meter`;
+                        break;
+                    case "4":
+                        hasil = `${nilai} meter = ${nilai * 100} centimeter`;
+                        break;
+                    case "5":
+                        hasil = `${nilai} mil = ${nilai * 1.60934} kilometer`;
+                        break;
+                    case "6":
+                        hasil = `${nilai} kilometer = ${nilai / 1.60934} mil`;
+                        break;
+                    default:
+                        hasil = "Pilihan tidak valid!";
+                }
+            }
+
+            document.getElementById("hasil").innerText = hasil;
+        }
+    </script>
+</body>
+</html>
